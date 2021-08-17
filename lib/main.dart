@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
         brightness: Brightness.dark,
+        primarySwatch: Colors.indigo,
         primaryColor: Colors.lightBlue[800],
         accentColor: Colors.cyan[600],
         fontFamily: "Helvetica",
@@ -41,6 +41,12 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: HomePage(),
+    );
+  }
+
+  ThemeData _customTheme(BuildContext context) {
+    return ThemeData(
+      accentColor: Colors.yellow,
     );
   }
 }
