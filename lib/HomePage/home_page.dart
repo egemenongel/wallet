@@ -59,11 +59,9 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueGrey,
         floatingActionButtonLocation: FloatingActionButtonLocation
             .centerDocked, //specify the location of the FAB
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.red,
           onPressed: () {
             moveToSecondPage();
             // Navigator.push(
@@ -78,7 +76,11 @@ class _HomePageState extends State<HomePage> {
           elevation: 4.0,
         ),
         appBar: AppBar(
-          title: Center(child: Text("iSavings")),
+          title: Center(
+              child: Text(
+            "iSavings",
+            style: Theme.of(context).textTheme.headline2,
+          )),
         ),
         bottomNavigationBar: BottomAppBar(
           child: Container(
@@ -87,7 +89,6 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
-                  splashColor: Colors.indigo,
                   splashRadius: 100,
                   onPressed: () {},
                   iconSize: 27.0,
@@ -102,14 +103,12 @@ class _HomePageState extends State<HomePage> {
                   iconSize: 27.0,
                   icon: Icon(
                     Icons.account_balance,
-                    color: Colors.white,
                   ),
                 ),
               ],
             ),
           ),
           shape: CircularNotchedRectangle(),
-          color: Colors.white,
         ),
         endDrawer: Drawer(
           child: ListView.builder(
@@ -154,7 +153,10 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20,
               ),
-              Text("TOTAL"),
+              Text(
+                "TOTAL",
+                style: Theme.of(context).textTheme.headline6,
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -192,7 +194,6 @@ class _HomePageState extends State<HomePage> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25),
           child: Card(
-            color: Colors.purple,
             child: ListTile(
               onTap: () {},
               minLeadingWidth: 25,
@@ -201,13 +202,11 @@ class _HomePageState extends State<HomePage> {
                   widthFactor: .5,
                   child: Icon(
                     Icons.monetization_on,
-                    color: Colors.white70,
                   )),
               title: Padding(
                 padding: const EdgeInsets.only(top: 20, left: 5),
                 child: Text(
                   bankAccounts[index],
-                  style: TextStyle(color: Colors.white),
                 ),
               ),
               subtitle: Padding(
