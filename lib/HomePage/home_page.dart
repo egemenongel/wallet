@@ -43,8 +43,6 @@ class _HomePageState extends State<HomePage> {
     //Adding Accounts to the List
     setState(() {
       bankAccounts.add(_information);
-
-      print(bankAccounts.length);
     });
   }
 

@@ -2,15 +2,57 @@ import 'package:cookbook_examples/HomePage/home_page.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 
+class CustomDropdownField extends StatefulWidget {
+  String variableName = "";
+
+  CustomDropdownField({Key? key, @required this.variableName = ""})
+      : super(key: key);
+
+  @override
+  _CustomDropdownFieldState createState() => _CustomDropdownFieldState();
+}
+
+class _CustomDropdownFieldState extends State<CustomDropdownField> {
+  @override
+  Widget build(BuildContext context) {
+    return DropdownSearch<String>(
+      showClearButton: true,
+      mode: Mode.BOTTOM_SHEET,
+      label: "Account type",
+      maxHeight: 300,
+      items: ["Crypto", "Bank", "Cash", "Check"],
+      selectedItem: null,
+      showSearchBox: true,
+      searchBoxDecoration: InputDecoration(
+          contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
+          labelText: "Account name"),
+      popupTitle: Container(
+        child: Center(
+          child: Text(
+            "",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+      popupShape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(),
+      ),
+    );
+  }
+}
+
 class AddAccountPage extends StatefulWidget {
   const AddAccountPage({Key? key}) : super(key: key);
 
   @override
-  _AddAccountPageState createState() => _AddAccountPageState();
+  AddAccountPageState createState() => AddAccountPageState();
 }
 
-class _AddAccountPageState extends State<AddAccountPage> {
-  var accountInfo = {
+class AddAccountPageState extends State<AddAccountPage> {
+  static var accountInfo = {
     "accountName": "",
     "accountType": "",
     "quantity": "",
@@ -31,23 +73,29 @@ class _AddAccountPageState extends State<AddAccountPage> {
           child: Column(
             children: [
               TextField(
-                controller: newAccount,
-                style: TextStyle(),
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(labelText: "Account name"),
-                // onChanged: (value) {
-                //   setState(() {});
-                // }
-              ),
-              DropdownSearch(
+                  controller: newAccount,
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(labelText: "Account name"),
+                  onChanged: (value) {
+                    setState(() {
+                      accountInfo["accountName"] = value;
+                    });
+                  }),
+              DropdownSearch<String>(
+                items: ["Crypto", "Bank", "Cash", "Check"],
                 showClearButton: true,
                 mode: Mode.BOTTOM_SHEET,
                 label: "Account type",
+                onChanged: (value) {
+                  setState(() {
+                    accountInfo["accountType"] = value!;
+                    print(value);
+                  });
+                },
                 maxHeight: 300,
-                items: ["Crypto", "Bank", "Cash", "Check"],
-                dropdownSearchDecoration: InputDecoration(),
                 selectedItem: null,
                 showSearchBox: true,
+                dropdownSearchDecoration: InputDecoration(),
                 searchBoxDecoration: InputDecoration(
                     contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
                     labelText: "Account name"),
