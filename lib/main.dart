@@ -1,4 +1,4 @@
-import 'package:cookbook_examples/AddAccount/add_account.dart';
+import './AddAccount/add_account.dart';
 import 'package:flutter/material.dart';
 import './HomePage/home_page.dart';
 
