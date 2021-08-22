@@ -1,4 +1,4 @@
-import 'package:cookbook_examples/HomePage/home_page.dart';
+import 'package:cookbook_examples/pages/home_page.dart';
 import 'package:cookbook_examples/models/account_model.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';

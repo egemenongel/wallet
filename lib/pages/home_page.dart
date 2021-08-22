@@ -150,11 +150,12 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   (() {
                     {
-                      for (var i = accountList.length - 1;
-                          i < accountList.length;
-                          i++) {
-                        sum += accountList[i].money.toDouble();
-                      }
+                      if (accountList.isNotEmpty)
+                        for (var i = accountList.length - 1;
+                            i < accountList.length;
+                            i++) {
+                          sum += accountList[i].money.toDouble();
+                        }
                       return "" + sum.toString();
                     }
                   })(),

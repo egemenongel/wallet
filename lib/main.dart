@@ -1,6 +1,6 @@
-import './AddAccount/add_account.dart';
+import 'pages/add_account.dart';
 import 'package:flutter/material.dart';
-import './HomePage/home_page.dart';
+import 'pages/home_page.dart';
 import 'models/account_model.dart';
 
 void main() {
