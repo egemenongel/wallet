@@ -13,41 +13,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var account = {};
-  List<String> items = new List.generate(10, (index) => "Balance $index");
-
-  List<String> bankAccounts = [
-    "Paypal",
-    "Enpara",
-    "Paribu",
-    "Binance",
-    "Ziraat",
-    "Garanti",
-    "",
-  ];
   List<AccountModel> accountList = List<AccountModel>.empty(growable: true);
-  List<double> Quantity = [8850, 1300, 1.2, 1.3, 400, 220, 5];
-
-  List<double> convertRatio = [10, 1, 2];
 
   double sum = 0;
-
-  /* Return Data Functions */
-
-  // @override
-  // void initState() {
-  //   while (widget.accountInfo != null && widget.accountInfo != "") {
-  //     updateList();
-  //   }
-  // }
-
-  // void updateList() {
-  //   setState(() {
-  //     bankAccounts.add(widget.accountInfo["accountName"]);
-  //     Quantity.add(double.parse(widget.accountInfo["quantity"]));
-  //     widget.accountInfo = "";
-  //   });
-  // }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +40,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Center(
             child: Text(
-          "iSavings",
+          "myWallet",
           style: Theme.of(context).textTheme.headline2,
         )),
       ),
@@ -123,7 +91,6 @@ class _HomePageState extends State<HomePage> {
             child: _accountCards(context),
           ),
           _balanceCard(context),
-          Text(accountList.length.toString()),
         ],
       ),
     );
@@ -179,6 +146,7 @@ class _HomePageState extends State<HomePage> {
       itemCount: accountList.length,
       itemBuilder: (BuildContext context, int index) => Container(
         width: 150,
+        height: 150,
         margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25),
@@ -186,23 +154,28 @@ class _HomePageState extends State<HomePage> {
             child: ListTile(
               onTap: () {},
               minLeadingWidth: 25,
-              leading: Align(
-                  alignment: Alignment.bottomLeft,
-                  widthFactor: .5,
-                  child: Icon(
+              leading: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
                     Icons.monetization_on,
-                  )),
+                  ),
+                ],
+              ),
               title: Padding(
-                padding: const EdgeInsets.only(top: 20, left: 5),
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
                 child: Text(
                   accountList[index].name,
+                  style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),
               subtitle: Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child: Text(
                   "\$" + accountList[index].money.toString(),
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                 ),
               ),
             ),
