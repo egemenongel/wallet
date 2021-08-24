@@ -1,3 +1,5 @@
+
+
 # Wallet App
 
 ## Description
@@ -24,7 +26,9 @@ A wallet project made with Flutter. All money on bank accouts and crypto account
 
 ### Home Page
 
-<img src="https://user-images.githubusercontent.com/73590188/130366974-18df03d4-df9b-435e-8159-d74070bff477.png" alt="Home" width="400"/>
+<img src="https://user-images.githubusercontent.com/73590188/130582760-c14b17e5-e5f7-4e6b-bd6f-54de77264593.png" alt="Home" width="400"/>
+
+
 
 
 
