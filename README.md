@@ -10,8 +10,9 @@ A wallet project made with Flutter. All money on bank accouts and crypto account
 
 *  [X] An account can be succesfully added.
 *  [X] Total money can be calculated.
-*  [ ] Edit button to accounts.
-*  [ ] Delete button to accounts.
+*  [ ] Accounts page.
+*  [ ] Edit button to accounts page.
+*  [ ] Delete button to accounts page.
 *  [ ] Money currencies are working.
 *  [ ] Money currencies are dynamic.
 *  [ ] Accounts can be integrated with API.
